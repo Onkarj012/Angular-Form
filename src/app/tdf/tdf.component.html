@@ -6,29 +6,47 @@
             </div>
             <form #newForm="ngForm" (ngSubmit)="save(newForm.value)" novalidate>
                 
-                
+                <!-- Name Field -->
                 <div class="form-group">
                     <label for="">Enter Name:</label>
-                    <input type="text" [class.is-invalid]="name.invalid && name.touched" name="name" 
-  class="form-control" placeholder="Enter Name" ngModel #name="ngModel" required>
-
+                    <input type="text" minlength="3" [class.is-invalid]="name.invalid && name.touched" 
+                        name="name" class="form-control" placeholder="Enter Name" 
+                        ngModel #name="ngModel" required>
                 </div>
-                <div class="alert alert-danger" *ngIf="name.invalid && name.touched">
+                <div class="alert alert-danger" *ngIf="name.errors?.['required'] && name.touched">
                     Name is required
                 </div>
+                <div class="alert alert-danger" *ngIf="!name.errors?.['required'] && name.errors?.['minlength'] && name.touched">
+                    Name must be at least 3 characters long
+                </div>
+
                 <br>
+
+                <!-- Age Field -->
                 <div class="form-group">
                     <label for="">Enter Age:</label>
-                    <input type="number" name="age" class="form-control" 
-                        placeholder="Enter Age" ngModel>
+                    <input type="number" min="10" [class.is-invalid]="age.invalid && age.touched"
+                        name="age" class="form-control" placeholder="Enter Age"
+                        ngModel #age="ngModel" required>
                 </div>
+                <div class="alert alert-danger" *ngIf="age.errors?.['required'] && age.touched">
+                    Age is required
+                </div>
+                <div class="alert alert-danger" *ngIf="!age.errors?.['required'] && age.errors?.['min'] && age.touched">
+                    Age must be at least 10
+                </div>
+
                 <br>
+
+                <!-- Email Field -->
                 <div class="form-group">
                     <label for="">Enter Email:</label>
                     <input type="text" name="email" class="form-control" 
                         placeholder="Enter Email" ngModel>
                 </div>
                 <br>
+
+                <!-- Submit Button -->
                 <div class="d-grid">
                     <input type="submit" value="Submit" class="btn btn-primary">
                 </div>
