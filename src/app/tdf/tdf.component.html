@@ -1,0 +1,32 @@
+<div class="contaner">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="bg-primary p-3 text center">
+                <h2>Template Driven Form</h2>
+            </div>
+            <form #newForm="ngForm" (ngSubmit)="save(newForm.value) " novalidate>
+                {{newForm.value | json}}
+                <div class="form-group">
+                    <label for="">Enter Name :  </label>
+                    <input type="text" name="name" class="form-contrl" placeholder="Enter Name" ngModel>
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="">Enter Age :  </label>
+                    <input type="number" name="age" class="form-contrl" placeholder="Enter age" ngModel>
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="">Enter Email :  </label>
+                    <input type="text" name="email" class="form-contrl" placeholder="Enter email" ngModel>
+                </div>
+                <br>
+                <div class="d-grid">
+                    <input type="submit" value="Submit" class="btn btn-primary">
+                </div>
+               
+            </form>
+
+        </div>
+    </div>
+</div>
