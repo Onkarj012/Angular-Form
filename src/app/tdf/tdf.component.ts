@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { BootstrapOptions } from '@angular/core';
 @Component({
   selector: 'app-tdf',
   standalone: false,
@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
   styleUrl: './tdf.component.css'
 })
 export class TdfComponent {
+name: any;
 
   save(formData:any){
     console.log(formData);
