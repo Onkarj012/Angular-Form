@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { BootstrapOptions } from '@angular/core';
 @Component({
   selector: 'app-tdf',
   standalone: false,

@@ -41,9 +41,16 @@
                 <!-- Email Field -->
                 <div class="form-group">
                     <label for="">Enter Email:</label>
-                    <input type="text" name="email" class="form-control" 
-                        placeholder="Enter Email" ngModel>
+                    <input type="email" name="email" [class.is-invalid]="email.invalid && email.touched" 
+                        class="form-control" placeholder="Enter Email" ngModel #email="ngModel" required email>
                 </div>
+                <div class="alert alert-danger" *ngIf="email.errors?.['required'] && email.touched">
+                    Email is required
+                </div>
+                <div class="alert alert-danger" *ngIf="!email.errors?.['required'] && email.errors?.['email'] && email.touched">
+                    Enter a valid email address
+                </div>
+
                 <br>
 
                 <!-- Submit Button -->
